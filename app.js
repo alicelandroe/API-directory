@@ -32,9 +32,6 @@ fetch('https://randomuser.me/api/?results=12')
             personElement.appendChild(createCityDiv);
             employeePlace.appendChild(personElement);
 
-
-            
-            
             // console.log(personElement);
             // console.log(person);
         });
@@ -43,6 +40,26 @@ fetch('https://randomuser.me/api/?results=12')
         // console.log(data);
     });
 
+
+
+// MODAL POP-UP
+var modal = document.querySelector(".modal");
+    var trigger = document.querySelector(".trigger");
+    var closeButton = document.querySelector(".close-button");
+
+    function toggleModal() {
+        modal.classList.toggle("show-modal");
+    }
+
+    function windowOnClick(event) {
+        if (event.target === modal) {
+            toggleModal();
+        }
+    }
+
+    trigger.addEventListener("click", toggleModal);
+    closeButton.addEventListener("click", toggleModal);
+    window.addEventListener("click", windowOnClick);
 
 // Image
 // First 
