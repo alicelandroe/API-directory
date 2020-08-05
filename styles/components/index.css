@@ -1,0 +1,1 @@
+.modal{position:fixed;left:0;top:0;width:100%;height:100%;background-color:rgba(7,7,7,0.5)}.modal-content{color:cadetblue;background-color:white;position:absolute;left:45px;right:45px;top:110px;text-align:center}.employees{display:grid;grid-template-columns:1fr}.profile-picture{border-radius:50%}

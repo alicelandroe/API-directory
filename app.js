@@ -17,6 +17,7 @@ fetch('https://randomuser.me/api/?results=12')
 
             // IMAGE
             const image = document.createElement("img");
+            image.className = 'profile-picture';
             const imageSrc = person.picture.medium;
             image.src = imageSrc;
             
@@ -76,9 +77,8 @@ fetch('https://randomuser.me/api/?results=12')
 
                 // close button for modal 
                 const closeButton = document.createElement("button");
+                closeButton.className = 'modal-close-button';
                 closeButton.innerText = `x`;
-                closeButton.style.width = "50px";
-                closeButton.style.height = "50px";
                 closeButton.addEventListener("click", () => modal.remove())
 
                 // include info in the modal window:
