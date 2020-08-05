@@ -4,20 +4,35 @@ fetch('https://randomuser.me/api/?results=12')
         const employeePlace = document.querySelector('.employees');
         data.results.forEach(person => {
             const personElement = document.createElement("div");
+            
+            // NAME
             const personFirstName = person.name.first;
             const personLastName = person.name.last;
+            personElement.innerText = `${personFirstName} ${personLastName}`;
 
+
+            // IMAGE
             const createImg = document.createElement("img");
             const personImage = person.picture.medium;
             createImg.src = personImage;
             
-            
-            console.log({createImg})
+            // EMAIL
+            const email = person.email;
+            const createEmailDiv = document.createElement("div");
+            createEmailDiv.innerText = email;
 
-            personElement.innerText = `${personFirstName} ${personLastName}`;
+            // CITY
+            const city = person.location.city;
+            const createCityDiv = document.createElement("div");
+            createCityDiv.innerText = city;
+
 
             personElement.appendChild(createImg);
+            personElement.appendChild(createEmailDiv);
+            personElement.appendChild(createCityDiv);
             employeePlace.appendChild(personElement);
+
+
             
             
             // console.log(personElement);
