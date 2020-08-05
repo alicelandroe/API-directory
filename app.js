@@ -74,7 +74,15 @@ fetch('https://randomuser.me/api/?results=12')
                 modalContent.className = 'modal-content';
                 modal.appendChild(modalContent);
 
+                // close button for modal 
+                const closeButton = document.createElement("button");
+                closeButton.innerText = `x`;
+                closeButton.style.width = "50px";
+                closeButton.style.height = "50px";
+                closeButton.addEventListener("click", () => modal.remove())
+
                 // include info in the modal window:
+                modalContent.appendChild(closeButton);
                 modalContent.appendChild(image);
                 modalContent.appendChild(name);
                 modalContent.appendChild(email);
