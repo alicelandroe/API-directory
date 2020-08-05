@@ -10,7 +10,10 @@ fetch('https://randomuser.me/api/?results=12')
             // NAME
             const personFirstName = person.name.first;
             const personLastName = person.name.last;
-            personElement.innerText = `${personFirstName} ${personLastName}`;
+            const fullName = `${personFirstName} ${personLastName}`;
+            const name = document.createElement("div");
+
+            name.innerText = fullName;
 
             // IMAGE
             const image = document.createElement("img");
@@ -72,9 +75,10 @@ fetch('https://randomuser.me/api/?results=12')
                 modal.appendChild(modalContent);
 
                 // include info in the modal window:
-                modalContent.innerText = `${personFirstName} ${personLastName}`;
-                modalContent.appendChild(email);
                 modalContent.appendChild(image);
+                modalContent.appendChild(name);
+                modalContent.appendChild(email);
+                
                 modalContent.appendChild(cell);
                 modalContent.appendChild(address);
                 modalContent.appendChild(birthday);
