@@ -3,15 +3,17 @@ fetch('https://randomuser.me/api/?results=12')
     .then(data => {
         const employeePlace = document.querySelector('.employees');
         data.results.forEach(person => {
-            const personElement = document.createElement("div");
-            personElement.classList.add('person-box');
+            const personBox = document.createElement("div");
+            personBox.classList.add('person-box');
             
+            
+
             // GET ALL INFORMATION
             // NAME
             const personFirstName = person.name.first;
             const personLastName = person.name.last;
             const fullName = `${personFirstName} ${personLastName}`;
-            const name = document.createElement("div");
+            const name = document.createElement("h3");
 
             name.innerText = fullName;
 
@@ -23,17 +25,17 @@ fetch('https://randomuser.me/api/?results=12')
             
             // EMAIL
             const getEmail = person.email;
-            const email = document.createElement("div");
+            const email = document.createElement("p");
             email.innerText = getEmail;
 
             // CITY
             const getCity = person.location.city;
-            const city = document.createElement("div");
+            const city = document.createElement("p");
             city.innerText = getCity;
 
             // CELL 
             const getCell = person.cell;
-            const cell = document.createElement("div");
+            const cell = document.createElement("p");
             cell.innerText = getCell;
             
                 
@@ -54,21 +56,32 @@ fetch('https://randomuser.me/api/?results=12')
             birthday.innerText = `Birthday: ${date}`;
 
 
-            // Show name, image, email and city on the page 
-            personElement.appendChild(image);
-            personElement.appendChild(email);
-            personElement.appendChild(city);
 
-            employeePlace.appendChild(personElement);
+            // create div for all person-box div, aka image, name, email and city
+            const personBoxContent = document.createElement("div");
+            personBoxContent.className = 'person-box__content';
+            personBox.appendChild(personBoxContent);
+
+            // Show name, image, email and city on the page 
+            personBoxContent.appendChild(image);
+
+            // create div for text content, aka name, email and city
+            const personBoxTextContent = document.createElement("div");
+            personBoxTextContent.className = 'person-box__text-content';
+            personBoxContent.appendChild(personBoxTextContent);
+
+            personBoxTextContent.appendChild(name);
+            personBoxTextContent.appendChild(email);
+            personBoxTextContent.appendChild(city);
+
+            employeePlace.appendChild(personBox);
 
             // create a modal that pops up with employee info
-            personElement.addEventListener('click', e => {
+            personBox.addEventListener('click', e => {
                 // create modal div
                 const modal = document.createElement("div");
                 modal.className = 'modal';
-                // modal.innerText = 'hej hej hej hej';
 
-                employeePlace.appendChild(modal);
 
                 // content div inside the modal div
                 const modalContent = document.createElement("div");
@@ -83,14 +96,16 @@ fetch('https://randomuser.me/api/?results=12')
 
                 // include info in the modal window:
                 modalContent.appendChild(closeButton);
-                modalContent.appendChild(image);
-                modalContent.appendChild(name);
-                modalContent.appendChild(email);
+                modalContent.appendChild(image.cloneNode(true));
+                modalContent.appendChild(name.cloneNode(true));
+                modalContent.appendChild(email.cloneNode(true));
                 
                 modalContent.appendChild(cell);
                 modalContent.appendChild(address);
                 modalContent.appendChild(birthday);
 
+
+                employeePlace.appendChild(modal);
             });
 
         });

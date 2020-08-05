@@ -1,8 +1,7 @@
 .employees {
-    display: grid;
-    grid-template-columns: 1fr;
-}
-
-.profile-picture {
-    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
 }
