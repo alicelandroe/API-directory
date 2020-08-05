@@ -6,11 +6,11 @@ fetch('https://randomuser.me/api/?results=12')
             const personElement = document.createElement("div");
             personElement.classList.add('person-box');
             
+            // GET ALL INFORMATION
             // NAME
             const personFirstName = person.name.first;
             const personLastName = person.name.last;
             personElement.innerText = `${personFirstName} ${personLastName}`;
-
 
             // IMAGE
             const image = document.createElement("img");
@@ -26,6 +26,29 @@ fetch('https://randomuser.me/api/?results=12')
             const getCity = person.location.city;
             const city = document.createElement("div");
             city.innerText = getCity;
+
+            // CELL 
+            const getCell = person.cell;
+            const cell = document.createElement("div");
+            cell.innerText = getCell;
+            
+                
+            // ADDRESS including street name and number, city, state, and postcode.
+            const addressStreetName = person.location.street.name;
+            const addressStreetNumber = person.location.street.number;
+            const addressState = person.location.state;
+            const addressPostcode = person.location.postcode;
+            const address = document.createElement("div");
+            address.innerText = `${addressStreetNumber} ${addressStreetName}, ${addressState} ${addressPostcode}`;
+            
+
+            // BIRTHDAY
+            const getBirthday = person.dob.date;
+            const date = getBirthday.substring(0,10).replace(/-/g, "/");
+
+            const birthday = document.createElement("div");
+            birthday.innerText = `Birthday: ${date}`;
+
 
             // Show name, image, email and city on the page 
             personElement.appendChild(image);
@@ -48,34 +71,18 @@ fetch('https://randomuser.me/api/?results=12')
                 modalContent.className = 'modal-content';
                 modal.appendChild(modalContent);
 
-                // include: 
-                        // Image - yes
-                        // Name - yes
-                        // Email - yes
-                        // Cell Number
-                        // Detailed Address, including street name and number, city, state, and postcode.
-                        // Birthdate
-                // in the modal window
-
+                // include info in the modal window:
                 modalContent.innerText = `${personFirstName} ${personLastName}`;
                 modalContent.appendChild(email);
                 modalContent.appendChild(image);
-
-                // get cell number
-                // const getCell = person.cell;
-                // const cell = document.createElement("div");
-                // cell.innerText = getCell;
-
-    
-                // get address number
-
-                // get birthdate number
+                modalContent.appendChild(cell);
+                modalContent.appendChild(address);
+                modalContent.appendChild(birthday);
 
             });
 
         });
         
-        // employeePlace.innerHTML = data.results;
         console.log(data);
     });
 
