@@ -8,11 +8,31 @@
 }
 
 .modal-content {
-    color: cadetblue;
     background-color: white;
     position: absolute;
     left: 45px;
     right: 45px;
     top: 110px;
+    padding: 20px;
     text-align: center;
+    & h3 {
+        color: rgb(56, 55, 55);
+        margin: 0;
+        padding-top: 10px;
+    }
+    & p {
+        color: rgb(73, 71, 71);
+        margin: 0;
+    }
+    & .profile-picture {
+        border-radius: 50%;
+        margin-right: 0px;
+        display: inline;
+    }
+}
+
+.modal-close-button {
+    position: fixed;
+    top: 117px;
+    right: 53px;
 }

@@ -44,7 +44,7 @@ fetch('https://randomuser.me/api/?results=12')
             const addressStreetNumber = person.location.street.number;
             const addressState = person.location.state;
             const addressPostcode = person.location.postcode;
-            const address = document.createElement("div");
+            const address = document.createElement("p");
             address.innerText = `${addressStreetNumber} ${addressStreetName}, ${addressState} ${addressPostcode}`;
             
 
@@ -52,7 +52,7 @@ fetch('https://randomuser.me/api/?results=12')
             const getBirthday = person.dob.date;
             const date = getBirthday.substring(0,10).replace(/-/g, "/");
 
-            const birthday = document.createElement("div");
+            const birthday = document.createElement("p");
             birthday.innerText = `Birthday: ${date}`;
 
 
@@ -95,21 +95,16 @@ fetch('https://randomuser.me/api/?results=12')
                 closeButton.addEventListener("click", () => modal.remove())
 
                 // include info in the modal window:
-                modalContent.appendChild(closeButton);
                 modalContent.appendChild(image.cloneNode(true));
+                modalContent.appendChild(closeButton);
                 modalContent.appendChild(name.cloneNode(true));
                 modalContent.appendChild(email.cloneNode(true));
-                
                 modalContent.appendChild(cell);
                 modalContent.appendChild(address);
                 modalContent.appendChild(birthday);
 
-
                 employeePlace.appendChild(modal);
             });
-
         });
-        
-        console.log(data);
     });
 
