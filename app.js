@@ -6,8 +6,6 @@ fetch('https://randomuser.me/api/?results=12')
             const personBox = document.createElement("div");
             personBox.classList.add('person-box');
             
-            
-
             // GET ALL INFORMATION
             // NAME
             const personFirstName = person.name.first;
@@ -31,11 +29,13 @@ fetch('https://randomuser.me/api/?results=12')
             // CITY
             const getCity = person.location.city;
             const city = document.createElement("p");
+            city.className = 'city';
             city.innerText = getCity;
 
             // CELL 
             const getCell = person.cell;
             const cell = document.createElement("p");
+            cell.className = 'cell';
             cell.innerText = getCell;
             
                 
@@ -88,6 +88,11 @@ fetch('https://randomuser.me/api/?results=12')
                 modalContent.className = 'modal-content';
                 modal.appendChild(modalContent);
 
+                // div for close button
+                const closeDiv = document.createElement("div");
+                closeDiv.style.height = '30px';
+                modalContent.appendChild(closeDiv);
+
                 // close button for modal 
                 const closeButton = document.createElement("button");
                 closeButton.className = 'modal-close-button';
@@ -95,10 +100,11 @@ fetch('https://randomuser.me/api/?results=12')
                 closeButton.addEventListener("click", () => modal.remove())
 
                 // include info in the modal window:
+                closeDiv.appendChild(closeButton);
                 modalContent.appendChild(image.cloneNode(true));
-                modalContent.appendChild(closeButton);
                 modalContent.appendChild(name.cloneNode(true));
                 modalContent.appendChild(email.cloneNode(true));
+                modalContent.appendChild(city.cloneNode(true));
                 modalContent.appendChild(cell);
                 modalContent.appendChild(address);
                 modalContent.appendChild(birthday);

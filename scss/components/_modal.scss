@@ -7,32 +7,48 @@
     background-color: rgba(7, 7, 7, 0.5);
 }
 
+
+
 .modal-content {
     background-color: white;
-    position: absolute;
-    left: 45px;
-    right: 45px;
-    top: 110px;
-    padding: 20px;
+    border-radius: 5px;
+    border: 1px solid rgb(179, 179, 179);
+    margin: 90px auto;
+    max-width: 300px;;
+    padding: 0 20px 30px 20px;
     text-align: center;
     & h3 {
-        color: rgb(56, 55, 55);
+        color: rgb(78, 78, 78);
         margin: 0;
+        font-size: 15px;
         padding-top: 10px;
     }
     & p {
-        color: rgb(73, 71, 71);
+        color: rgb(102, 101, 101);
         margin: 0;
+        font-size: 12px;
+        padding-top: 10px;
+    }
+    & .city {
+        padding-bottom: 23px;
+        border-bottom: 1px solid rgb(179, 179, 179);
+    }
+    & .cell {
+        padding-top: 20px;
     }
     & .profile-picture {
         border-radius: 50%;
         margin-right: 0px;
-        display: inline;
+        width: 90px;
+        height: auto;
     }
 }
 
 .modal-close-button {
-    position: fixed;
-    top: 117px;
-    right: 53px;
+    border: none;
+    margin-top: 7px;
+    font-size: 17px;
+    margin-right: -16px;
+    float: right;
+    background-color: transparent;
 }
