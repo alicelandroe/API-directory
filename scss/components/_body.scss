@@ -11,7 +11,27 @@ body {
 h1 {
     font-size: 16px;
     font-weight: 500;
-    text-align: center;
     color: rgb(77, 75, 75);
-    margin: 29px 0px 11px 11px;
+    margin: 29px 0px 11px 0px;
+    @media only screen and (min-width: 377px) {
+        margin-left: 20px;
+    }
+    @media only screen and (min-width: 547px) {
+        margin-left: 90px;
+    }
+    @media only screen and (min-width: 664px) {
+        margin-left: 40px;
+    }
+    @media only screen and (min-width: 768px) {
+        margin-left: 70px;
+    }
+    @media only screen and (min-width: 892px) {
+        margin-left: 130px;
+    }
+    @media only screen and (min-width: 1000px) {
+        margin-left: 40px;
+    }
+    @media only screen and (min-width: 1024px) {
+        margin-left: 40px;
+    }
 }
